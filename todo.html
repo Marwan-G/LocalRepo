@@ -1,0 +1,77 @@
+
+<template name="main">
+    <h1>Todos</h1>
+		{{>navigation}}
+		{{>lists}}
+		{{>yield}}
+	<hr />
+    <p>Copyright &copy; Todos, 2014-2015.</p>
+</template>
+<template name="navigation">
+	<nav name="navigation">
+		<ul>
+	<li><a href="{{pathFor route="homee"}}">Home</a></li>
+	<li><a href="/register">Register</a></li>
+ <li><a href="/login">Login</a></li>
+</ul>
+</nav>
+
+</template>
+<template name="home">
+	<h1> home</h1>
+	<p>welcome to the Todos paplication.</p>
+
+</template>
+
+	<template name="register">
+	    <h2>Register</h2>
+	</template>
+
+<template name="login">
+	<h2>Login</h2>
+     </template>
+
+<template name="lists">
+	<h2>lists</h2>
+{{>addList}}
+    <ul>
+{{#each list}}
+    <li><a href="/list/{{_id}} ">{{name}}</a></li>
+{{/each}}
+    </ul>
+</template>
+	<template name="addList">
+		<form>Create a list:
+			<input type="text" name="listName" placeholder="List name here...">
+		</form>
+
+	</template>
+	<template name="todoss">
+		 {{>addTodo}}
+<ul>
+
+		{{#each tod}}
+                  <li>{{>todoItem}}</li>
+
+			{{/each}}
+</ul>
+	</template>
+
+
+	<template name="todoItem">
+		<input tpye="text" value="{{name}}" name="todoItem">
+				[<a href="#" class="delete-todo">Delete</a>]
+
+
+
+
+	</template>
+	<template name="addTodo">
+	<form>
+		create a task:
+		<input type="text" name="todoName" placeholder="Type a task here ...">
+    <input type="submit" value="addTask">
+	</form>
+
+
+	</template>
